@@ -1,0 +1,66 @@
+@import 'vars.scss';
+
+:host {
+  max-width: 300px;
+  min-height: 100vh;
+  overflow-y: hidden;
+
+  display: flex;
+  flex-direction: column;
+
+  background-color: $bg-color-2;
+
+  .menu {
+    flex-grow: 1;
+    flex-direction: column;
+    height: 100%;
+    padding: 0 40px;
+
+    .img-container {
+      min-height: 120px;
+      img {
+        width: 70%;
+      }
+    }
+
+    &-container {
+      width: 100%;
+
+      &.flex {
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 10px;
+      }
+
+      &.options {
+        min-height: 150px;
+      }
+
+      .title {
+        margin: 10px 0;
+        align-self: flex-start;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 0.7rem;
+        color: #5b5656;
+      }
+
+      .playlist-scroll {
+        width: 100%;
+        flex-direction: column;
+        gap: 10px;
+
+        max-height: calc(95vh - calc(120px + 150px + 70px));
+        overflow-y: auto;
+
+        &::-webkit-scrollbar {
+          display: none;
+        }
+      }
+    }
+  }
+  .user-info {
+    flex-grow: 0;
+  }
+}

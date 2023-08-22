@@ -23,9 +23,8 @@ const isAuthenticated = ():
     notAutenthicated()
   }
 
-  return new Promise((res) => {
-    const user = spotifyService.startService()
-    console.log(user)
+  return new Promise(async (res) => {
+    const user = await spotifyService.startService()
     if (user) res(true)
     else res(notAutenthicated())
   })

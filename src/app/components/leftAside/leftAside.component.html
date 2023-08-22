@@ -1,0 +1,43 @@
+<div class="menu flex">
+  <div class="img-container flex flex-center">
+    <img src="assets/images/myspot.svg" alt="MySpot Logo" />
+  </div>
+  <div class="menu-container flex options">
+    <app-menuButton
+      [description]="'Home'"
+      [selected]="selectedMenu === 'Home'"
+      (click)="handleButton('Home')"
+    >
+      <fa-icon [icon]="home"></fa-icon>
+    </app-menuButton>
+    <app-menuButton
+      [description]="'Pesquisar'"
+      [selected]="selectedMenu === 'Pesquisar'"
+      (click)="handleButton('Pesquisar')"
+    >
+      <fa-icon [icon]="search"></fa-icon>
+    </app-menuButton>
+    <app-menuButton
+      [description]="'Artistas'"
+      [selected]="selectedMenu === 'Artistas'"
+      (click)="handleButton('Artistas')"
+    >
+      <fa-icon [icon]="artist"></fa-icon>
+    </app-menuButton>
+  </div>
+  <div class="menu-container flex">
+    <span class="title">Playlists</span>
+    <div class="playlist-scroll flex">
+      <app-menuButton
+        *ngFor="let playlist of playlists"
+        [description]="playlist.name"
+        [selected]="selectedMenu === playlist.id"
+        (click)="handleButton(playlist.id)"
+      >
+        <fa-icon [icon]="music"></fa-icon>
+      </app-menuButton>
+    </div>
+  </div>
+</div>
+
+<div class="user-info"></div>
