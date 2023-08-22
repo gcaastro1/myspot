@@ -1,0 +1,29 @@
+@import 'vars';
+
+div {
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+
+  height: 100%;
+  width: 100%;
+
+  color: $primary;
+
+  img {
+    flex-grow: 0;
+    width: 40px;
+    height: auto;
+    border-radius: 100%;
+  }
+
+  span {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .icon {
+    cursor: pointer;
+  }
+}

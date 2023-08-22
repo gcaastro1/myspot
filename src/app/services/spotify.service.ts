@@ -1,9 +1,10 @@
-import { Injectable } from '@angular/core'
+import { Injectable, inject } from '@angular/core'
 import { spotifyConfig } from 'src/environments/environment'
 import Spotify from 'spotify-web-api-js'
 import { UserProps } from '../interfaces/user.interfaces'
 import { spotifyPlaylist, spotifyUser } from '../common/spotifyHelper'
 import { PlaylistProps } from '../interfaces/playlist.interfaces'
+import { Router } from '@angular/router'
 
 @Injectable({
   providedIn: 'root',
@@ -11,6 +12,8 @@ import { PlaylistProps } from '../interfaces/playlist.interfaces'
 export class SpotifyService {
   spotifyApi: Spotify.SpotifyWebApiJs = null
   user: UserProps
+
+  private router = inject(Router)
 
   constructor() {
     this.spotifyApi = new Spotify()
@@ -69,5 +72,10 @@ export class SpotifyService {
     })
 
     return playlists.items.map(spotifyPlaylist)
+  }
+
+  logout() {
+    localStorage.clear()
+    this.router.navigate(['/login'])
   }
 }

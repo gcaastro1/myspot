@@ -62,5 +62,13 @@
   }
   .user-info {
     flex-grow: 0;
+    display: block;
+    bottom: 0;
+    height: 60px;
+    align-self: flex-end;
+    width: 100%;
+
+    padding: 10px 40px;
+    border-top: 1px solid $bg-color;
   }
 }
